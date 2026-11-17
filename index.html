@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0" />
+  <title>If The Apple Never Fell — The Chewton Theory</title>
+  <link rel="icon" href="data:," />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/node_modules/three/build/three.module.js",
+        "three/addons/": "/node_modules/three/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: #000000;
+    }
+
+    #stage {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: #000000;
+      font-family: 'Roboto', 'Liberation Sans', 'DejaVu Sans', 'Noto Color Emoji', sans-serif;
+    }
+
+    #webgl-canvas {
+      display: block;
+      width: 1080px;
+      height: 1920px;
+    }
+
+    #hud-overlay {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Subtle top progress bar (0%..100% of 30s) */
+    #progress-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1080px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      z-index: 40;
+    }
+
+    #progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff5f57 0%, #ffd93d 60%, #5ce1e6 100%);
+      box-shadow: 0 0 12px rgba(255, 217, 61, 0.65);
+      transform-origin: left center;
+    }
+
+    /* Cinematic vignette driven by t */
+    #vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at 50% 46%,
+        rgba(0, 0, 0, 0) 54%,
+        rgba(8, 10, 16, 0.24) 82%,
+        rgba(4, 6, 12, 0.56) 100%
+      );
+      opacity: 0.72;
+      z-index: 10;
+    }
+
+    /* Deterministic impact flash overlay (vine_boom / boing / bling / bonk) */
+    #impact-flash {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      opacity: 0;
+      z-index: 35;
+      mix-blend-mode: screen;
+    }
+
+    /* Top Hook Banner (0.0s .. 3.2s) */
+    #hook-banner {
+      position: absolute;
+      top: 42px;
+      left: 50%;
+      width: 980px;
+      transform: translateX(-50%) scale(1);
+      transform-origin: center top;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      z-index: 25;
+      opacity: 0;
+    }
+
+    .hook-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 20px;
+      border-radius: 999px;
+      background: rgba(14, 17, 26, 0.78);
+      border: 2px solid rgba(255, 217, 61, 0.75);
+      color: #ffd93d;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(8px);
+    }
+
+    .hook-title {
+      margin: 0;
+      padding: 12px 26px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(16, 20, 30, 0.80) 0%, rgba(28, 22, 18, 0.76) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: 0.015em;
+      white-space: nowrap;
+      paint-order: stroke fill;
+      -webkit-text-stroke: 8px #0a0c12;
+      text-shadow:
+        0 5px 0 #0a0c12,
+        0 12px 28px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .hook-emoji {
+      display: inline-block;
+      -webkit-text-stroke: 0;
+      text-shadow: 0 6px 16px rgba(0, 0, 0, 0.65);
+    }
+
+    /* YouTube Shorts Safe-Zone Animated Subtitles (bottom: 270px) */
+    #subtitle-container {
+      position: absolute;
+      bottom: 270px;
+      left: 80px;
+      right: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      z-index: 30;
+      opacity: 0;
+      transform-origin: center bottom;
+    }
+
+    #speaker-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 24px;
+      border-radius: 999px;
+      background: rgba(10, 12, 18, 0.86);
+      border: 2.5px solid #ffd93d;
+      color: #ffd93d;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+    }
+
+    #subtitle-words {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      row-gap: 8px;
+      column-gap: 22px;
+      text-align: center;
+      padding: 6px 14px;
+    }
+
+    .sub-word {
+      display: inline-block;
+      padding: 0 2px;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.16;
+      letter-spacing: 0.012em;
+      color: #ffffff;
+      paint-order: stroke fill;
+      -webkit-text-stroke: 12px #090b10;
+      text-shadow:
+        0 6px 0 #090b10,
+        0 12px 24px rgba(0, 0, 0, 0.72);
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .sub-word.no-gap {
+      margin-right: -20px;
+    }
+
+    .sub-word.is-upcoming {
+      color: #eef2f7;
+    }
+
+    .sub-word.is-spoken {
+      color: #ffffff;
+    }
+
+    .sub-word.is-active {
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="webgl-canvas" width="1080" height="1920"></canvas>
+
+    <div id="hud-overlay">
+      <div id="progress-track">
+        <div id="progress-fill"></div>
+      </div>
+
+      <div id="vignette"></div>
+      <div id="impact-flash"></div>
+
+      <div id="hook-banner">
+        <div class="hook-eyebrow">THE CHEWTON THEORY</div>
+        <h1 class="hook-title">WHAT IF THE APPLE NEVER FELL? <span class="hook-emoji">🍎</span></h1>
+      </div>
+
+      <div id="subtitle-container">
+        <div id="speaker-pill">NARRATOR</div>
+        <div id="subtitle-words"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

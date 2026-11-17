@@ -1,0 +1,4 @@
+node_modules/
+.venv/
+output/*.mp4
+output/qa_frames/

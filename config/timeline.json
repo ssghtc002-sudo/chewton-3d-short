@@ -1,0 +1,636 @@
+{
+  "title": "If The Apple Never Fell — The Chewton Theory",
+  "duration": 30.0,
+  "fps": 30,
+  "totalFrames": 900,
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": "9:16"
+  },
+  "audio": {
+    "sampleRate": 44100,
+    "channels": 2,
+    "masterPath": "audio/output/master_audio.wav",
+    "manifestPath": "audio/output/voice_manifest.json",
+    "subtitlesPath": "output/subtitles.srt"
+  },
+  "worldAnchors": {
+    "groundY": 0.0,
+    "groundOrigin": [0.0, 0.0, 0.0],
+    "treeTrunkBase": [0.65, 0.0, -0.45],
+    "appleBranchAnchor": [0.15, 2.95, 0.25],
+    "appleHoverSpot": [0.25, 1.80, 0.42],
+    "chewtonBasePos": [-0.35, 0.0, 0.0],
+    "chewtonHeadRestPos": [-0.35, 1.65, 0.0],
+    "chewtonBonkTarget": [-0.35, 1.82, 0.0],
+    "chewtonFloatYRange": [1.2, 2.2],
+    "chewtonFloatApexPos": [-0.35, 1.85, 0.0],
+    "chewtonRebrandPos": [-0.35, 1.45, 0.0]
+  },
+  "voices": {
+    "narrator": {
+      "voice": "am_puck",
+      "lang": "en-us",
+      "role": "Punchy hype YouTube Shorts Narrator",
+      "pan": 0.0
+    },
+    "chewton": {
+      "voice": "bm_george",
+      "lang": "en-gb",
+      "role": "Dramatic posh British Sir Isaac Chewton",
+      "pan": -0.14
+    },
+    "apple": {
+      "voice": "af_bella",
+      "lang": "en-us",
+      "role": "Sassy sharp-tongued Talking Apple",
+      "pan": 0.14
+    }
+  },
+  "beats": [
+    {
+      "id": "beat_1",
+      "beatNumber": 1,
+      "actTitle": "HOOK",
+      "cameraShot": "hook_apple_drop",
+      "start": 0.0,
+      "end": 3.2,
+      "startFrame": 0,
+      "endFrame": 96,
+      "summary": "1666 orchard setup. Apple snaps off branch [0.15, 2.95, 0.25], drops partway, and freezes mid-air at [0.25, 1.80, 0.42] spinning suspiciously.",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "headPosition": [-0.35, 1.65, 0.0],
+        "rotation": [0.0, 0.22, 0.0],
+        "pose": "reading_under_tree",
+        "expression": "curious_squint",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.15, 2.95, 0.25],
+        "endPosition": [0.25, 1.80, 0.42],
+        "snapTime": 1.15,
+        "freezeTime": 1.85,
+        "faceVisible": false,
+        "expression": "neutral_suspicious",
+        "action": "snap_drop_freeze_spin"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "hook_apple_drop",
+        "hint": "Track apple snap from [0.15, 2.95, 0.25] down to dramatic mid-air freeze at [0.25, 1.80, 0.42] with snappy micro-shake at 1.85s.",
+        "shakeAt": [1.85]
+      },
+      "audioCue": {
+        "bgmSection": "1666_pizzicato",
+        "sfx": ["whoosh@1.15", "vine_boom@1.85"]
+      }
+    },
+    {
+      "id": "beat_2",
+      "beatNumber": 2,
+      "actTitle": "SHOCK & REACTION",
+      "cameraShot": "two_shot_poke",
+      "start": 3.2,
+      "end": 7.5,
+      "startFrame": 96,
+      "endFrame": 225,
+      "summary": "Chewton leans in and pokes the hovering apple. Apple squishes elastically and BOINGS right back into Chewton's nose!",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "headPosition": [-0.35, 1.65, 0.0],
+        "rotation": [0.0, 0.45, 0.0],
+        "pose": "lean_in_poke_then_recoil",
+        "expression": "confused_then_nose_bonk",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.25, 1.80, 0.42],
+        "endPosition": [0.25, 1.80, 0.42],
+        "pokeTime": 6.45,
+        "faceVisible": false,
+        "expression": "squash_boing",
+        "action": "hover_squash_boing_to_nose"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "two_shot_poke",
+        "hint": "Medium two-shot framing Chewton [-0.35, 1.65, 0.0] and floating apple [0.25, 1.80, 0.42]; punch on nose boing at 6.45s.",
+        "shakeAt": [6.45, 7.38]
+      },
+      "audioCue": {
+        "bgmSection": "1666_pizzicato_cutoff",
+        "sfx": ["boing@6.45", "record_scratch@7.38"]
+      }
+    },
+    {
+      "id": "beat_3a",
+      "beatNumber": 3,
+      "actTitle": "TWIST 1: TALKING APPLE",
+      "cameraShot": "apple_reveal_whip",
+      "start": 7.5,
+      "end": 10.6,
+      "startFrame": 225,
+      "endFrame": 318,
+      "summary": "Whip-pan close-up onto the floating apple as sassy cartoon eyes and mouth pop out! Apple roasts Chewton.",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "headPosition": [-0.35, 1.65, 0.0],
+        "rotation": [0.0, 0.55, 0.0],
+        "pose": "shocked_lean_back",
+        "expression": "jaw_drop",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.25, 1.80, 0.42],
+        "endPosition": [0.25, 1.82, 0.42],
+        "facePopTime": 7.55,
+        "faceVisible": true,
+        "expression": "sassy_smug",
+        "action": "pop_cartoon_face_talk_sassy"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "apple_reveal_whip",
+        "hint": "Snappy whip-pan punch-in onto apple [0.25, 1.80, 0.42] as eyes/mouth pop out at 7.55s.",
+        "shakeAt": [7.55]
+      },
+      "audioCue": {
+        "bgmSection": "bouncy_comedy_trap_intro",
+        "sfx": ["boing@7.55"]
+      }
+    },
+    {
+      "id": "beat_3b",
+      "beatNumber": 3,
+      "actTitle": "TWIST 1: ZERO-G WIG",
+      "cameraShot": "wig_float_chaos",
+      "start": 10.6,
+      "end": 13.2,
+      "startFrame": 318,
+      "endFrame": 396,
+      "summary": "Chewton gasps as his puffy white wig and feather quill detach and float upward while zero-G lifts him off the ground.",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "targetYRange": [0.0, 1.25],
+        "headPosition": [-0.35, 2.80, 0.0],
+        "rotation": [0.08, 0.25, -0.08],
+        "pose": "arms_flailing_liftoff",
+        "expression": "wide_eyed_shock",
+        "wigAttached": false,
+        "quillFloating": true,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.25, 1.82, 0.42],
+        "endPosition": [0.32, 2.05, 0.38],
+        "faceVisible": true,
+        "expression": "amused_smirk",
+        "action": "bob_and_watch"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "wig_float_chaos",
+        "hint": "Whip back to Chewton [-0.35, 0..1.25, 0.0] tilting slightly upward to track detached wig and floating quill.",
+        "shakeAt": []
+      },
+      "audioCue": {
+        "bgmSection": "bouncy_comedy_trap_build",
+        "sfx": ["shimmer@11.50", "whoosh@13.20"]
+      }
+    },
+    {
+      "id": "beat_4",
+      "beatNumber": 4,
+      "actTitle": "TWIST 2: MODERN CHAOS",
+      "cameraShot": "upside_down_montage",
+      "start": 13.2,
+      "end": 19.8,
+      "startFrame": 396,
+      "endFrame": 594,
+      "summary": "Zero-G world chaos! Surreal floating modern props appear (PHYSICS: CANCELLED textbook, floating coffee mug + spherical coffee blobs, pizza slice). Chewton tumbles upside-down at y=1.5..2.2.",
+      "chewton": {
+        "position": [-0.35, 1.75, 0.0],
+        "targetYRange": [1.35, 2.20],
+        "rotation": [0.35, 0.30, 3.05],
+        "pose": "upside_down_tumble_realization",
+        "expression": "mind_blown_excited",
+        "wigAttached": false,
+        "quillFloating": true,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.32, 2.05, 0.38],
+        "endPosition": [0.35, 1.95, 0.35],
+        "faceVisible": true,
+        "expression": "mischievous_grin",
+        "action": "zero_g_orbit_taunt"
+      },
+      "props": {
+        "floatingTextbook": true,
+        "textbookLabel": "PHYSICS: CANCELLED",
+        "coffeeMug": true,
+        "coffeeBlobs": true,
+        "pizzaSlice": true,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "upside_down_montage",
+        "hint": "Dutch-tilt / slow orbital rotation around floating Chewton (y=1.35..2.2) surrounded by textbook, coffee blobs, and pizza slice.",
+        "shakeAt": [19.25]
+      },
+      "audioCue": {
+        "bgmSection": "bouncy_comedy_trap_full",
+        "sfx": ["shimmer@13.55", "vine_boom@19.25"]
+      }
+    },
+    {
+      "id": "beat_5",
+      "beatNumber": 5,
+      "actTitle": "TWIST 3: THE REBRAND",
+      "cameraShot": "rebrand_hero_lowangle",
+      "start": 19.8,
+      "end": 25.8,
+      "startFrame": 594,
+      "endFrame": 774,
+      "summary": "Dramatic concert spotlight slams on! Cool 3D sunglasses snap onto Chewton! He strikes an epic zero-G hero pose as Sir Isaac CHEWTON.",
+      "chewton": {
+        "position": [-0.35, 1.45, 0.0],
+        "targetYRange": [1.35, 1.65],
+        "rotation": [-0.08, 0.15, 0.0],
+        "pose": "cool_rebrand_arms_crossed",
+        "expression": "cool_smirk",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": true,
+        "sunglassesSnapTime": 19.85
+      },
+      "apple": {
+        "startPosition": [0.35, 1.95, 0.35],
+        "endPosition": [0.22, 2.35, 0.25],
+        "faceVisible": true,
+        "expression": "scheming_smirk",
+        "action": "hype_then_sneak_above_head"
+      },
+      "props": {
+        "floatingTextbook": true,
+        "coffeeMug": true,
+        "coffeeBlobs": true,
+        "pizzaSlice": true,
+        "spotlight": true,
+        "shockwaveRing": false,
+        "dazeStars": false
+      },
+      "camera": {
+        "shotType": "rebrand_hero_lowangle",
+        "hint": "Dramatic low-angle hero push-in looking up at Chewton [-0.35, 1.45, 0.0] in spotlight with 3D sunglasses.",
+        "shakeAt": [19.85]
+      },
+      "audioCue": {
+        "bgmSection": "epic_thug_life_brass_drop",
+        "sfx": ["bling@19.85", "whoosh@25.60"]
+      }
+    },
+    {
+      "id": "beat_6a",
+      "beatNumber": 6,
+      "actTitle": "FINAL BONK PUNCHLINE",
+      "cameraShot": "bonk_impact_wide",
+      "start": 25.8,
+      "end": 27.9,
+      "startFrame": 774,
+      "endFrame": 837,
+      "summary": "Apple smirks and SLAMS straight down onto top of Chewton's head [-0.35, 1.82, 0.0] with a giant shockwave ring, slamming him back to ground y=0!",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "headPosition": [-0.35, 1.65, 0.0],
+        "rotation": [0.12, 0.15, 0.0],
+        "pose": "slammed_squashed_on_ground",
+        "expression": "bonked_shock",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [-0.35, 2.75, 0.0],
+        "bonkTarget": [-0.35, 1.82, 0.0],
+        "bonkTime": 25.86,
+        "endPosition": [0.22, 1.65, 0.35],
+        "faceVisible": true,
+        "expression": "evil_laugh_wink",
+        "action": "slam_head_bounce_camera_wink"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": true,
+        "shockwaveTime": 25.86,
+        "dazeStars": true
+      },
+      "camera": {
+        "shotType": "bonk_impact_wide",
+        "hint": "Wide dramatic frame capturing apple slam onto [-0.35, 1.82, 0.0], expanding shockwave ring, and fallen props hitting y=0.",
+        "shakeAt": [25.86]
+      },
+      "audioCue": {
+        "bgmSection": "bonk_cutoff_outro",
+        "sfx": ["bonk@25.86"]
+      }
+    },
+    {
+      "id": "beat_6b",
+      "beatNumber": 6,
+      "actTitle": "OUTRO DAZED REACTION",
+      "cameraShot": "outro_dazed_closeup",
+      "start": 27.9,
+      "end": 30.0,
+      "startFrame": 837,
+      "endFrame": 900,
+      "summary": "Dazed Chewton sits on the grass at y=0 with cartoon stars orbiting his head and admits gravity is real.",
+      "chewton": {
+        "position": [-0.35, 0.0, 0.0],
+        "headPosition": [-0.35, 1.35, 0.0],
+        "rotation": [0.15, 0.10, -0.06],
+        "pose": "sitting_dazed_rubbing_head",
+        "expression": "dazed_swirl_eyes",
+        "wigAttached": true,
+        "quillFloating": false,
+        "sunglassesOn": false
+      },
+      "apple": {
+        "startPosition": [0.22, 1.65, 0.35],
+        "endPosition": [0.25, 0.22, 0.42],
+        "faceVisible": true,
+        "expression": "smug_subscribe_grin",
+        "action": "rest_on_ground_wink"
+      },
+      "props": {
+        "floatingTextbook": false,
+        "coffeeMug": false,
+        "coffeeBlobs": false,
+        "pizzaSlice": false,
+        "spotlight": false,
+        "shockwaveRing": false,
+        "dazeStars": true
+      },
+      "camera": {
+        "shotType": "outro_dazed_closeup",
+        "hint": "Tight comedic closeup on dazed Chewton with spinning 3D stars around head and apple smiling on ground in foreground.",
+        "shakeAt": []
+      },
+      "audioCue": {
+        "bgmSection": "comedic_outro_sting",
+        "sfx": ["daze_chime@28.00"]
+      }
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "line_01",
+      "beatId": "beat_1",
+      "cameraShot": "hook_apple_drop",
+      "speaker": "narrator",
+      "text": "1666. What if that apple... NEVER fell?",
+      "ttsText": "Sixteen sixty-six. What if that apple... never fell?",
+      "windowStart": 0.18,
+      "windowEnd": 2.85,
+      "preferredSpeed": 1.08
+    },
+    {
+      "id": "line_02",
+      "beatId": "beat_2",
+      "cameraShot": "two_shot_poke",
+      "speaker": "chewton",
+      "text": "Wait... why is it floating? Hello? Physics?",
+      "ttsText": "Wait... why is it floating? Hello? Physics?",
+      "windowStart": 3.32,
+      "windowEnd": 6.22,
+      "preferredSpeed": 1.08
+    },
+    {
+      "id": "line_03",
+      "beatId": "beat_3a",
+      "cameraShot": "apple_reveal_whip",
+      "speaker": "apple",
+      "text": "Bro, you never invented gravity! I don't HAVE to drop!",
+      "ttsText": "Bro, you never invented gravity! I don't HAVE to drop!",
+      "windowStart": 7.62,
+      "windowEnd": 10.48,
+      "preferredSpeed": 1.14
+    },
+    {
+      "id": "line_04",
+      "beatId": "beat_3b",
+      "cameraShot": "wig_float_chaos",
+      "speaker": "chewton",
+      "text": "Wait—you can TALK?!",
+      "ttsText": "Wait—you can talk?!",
+      "windowStart": 10.72,
+      "windowEnd": 12.25,
+      "preferredSpeed": 1.10
+    },
+    {
+      "id": "line_05",
+      "beatId": "beat_4",
+      "cameraShot": "upside_down_montage",
+      "speaker": "narrator",
+      "text": "Without Chewton's gravity, the whole world forgot how to pull down!",
+      "ttsText": "Without Chewton's gravity, the whole world forgot how to pull down!",
+      "windowStart": 13.34,
+      "windowEnd": 16.85,
+      "preferredSpeed": 1.12
+    },
+    {
+      "id": "line_06",
+      "beatId": "beat_4",
+      "cameraShot": "upside_down_montage",
+      "speaker": "chewton",
+      "text": "Wait... NO gravity means NO physics homework?!",
+      "ttsText": "Wait... no gravity means no physics homework?!",
+      "windowStart": 16.95,
+      "windowEnd": 19.65,
+      "preferredSpeed": 1.12
+    },
+    {
+      "id": "line_07",
+      "beatId": "beat_5",
+      "cameraShot": "rebrand_hero_lowangle",
+      "speaker": "apple",
+      "text": "If you skip gravity and calculus, students worship you!",
+      "ttsText": "If you skip gravity and calculus, students worship you!",
+      "windowStart": 19.92,
+      "windowEnd": 22.30,
+      "preferredSpeed": 1.18
+    },
+    {
+      "id": "line_08",
+      "beatId": "beat_5",
+      "cameraShot": "rebrand_hero_lowangle",
+      "speaker": "chewton",
+      "text": "Forget gravity. Call me Sir Isaac CHEWTON! Zero gravity, zero exams!",
+      "ttsText": "Forget gravity, call me Sir Isaac Chewton, zero gravity, zero exams!",
+      "windowStart": 22.38,
+      "windowEnd": 25.72,
+      "preferredSpeed": 1.24
+    },
+    {
+      "id": "line_09",
+      "beatId": "beat_6a",
+      "cameraShot": "bonk_impact_wide",
+      "speaker": "apple",
+      "text": "Just kidding. Subscribe before I drop again!",
+      "ttsText": "Just kidding! Subscribe before I drop again!",
+      "windowStart": 26.08,
+      "windowEnd": 27.84,
+      "preferredSpeed": 1.22
+    },
+    {
+      "id": "line_10",
+      "beatId": "beat_6b",
+      "cameraShot": "outro_dazed_closeup",
+      "speaker": "chewton",
+      "text": "Ow... okay, gravity is real.",
+      "ttsText": "Ow... okay, gravity is real.",
+      "windowStart": 28.08,
+      "windowEnd": 29.70,
+      "preferredSpeed": 1.16
+    }
+  ],
+  "sfxEvents": [
+    {
+      "type": "whoosh",
+      "time": 1.15,
+      "gain": 0.42,
+      "pan": 0.12,
+      "description": "Apple snaps off branch and falls partway"
+    },
+    {
+      "type": "vine_boom",
+      "time": 1.85,
+      "gain": 0.65,
+      "pan": 0.0,
+      "description": "Apple freezes mid-air suspiciously"
+    },
+    {
+      "type": "boing",
+      "time": 6.45,
+      "gain": 0.62,
+      "pan": 0.05,
+      "description": "Chewton pokes apple; apple boings into his nose"
+    },
+    {
+      "type": "record_scratch",
+      "time": 7.38,
+      "gain": 0.60,
+      "pan": 0.0,
+      "description": "Record scratch before talking apple reveal"
+    },
+    {
+      "type": "boing",
+      "time": 7.55,
+      "gain": 0.40,
+      "pan": 0.15,
+      "description": "Cartoon eyes and mouth pop onto apple"
+    },
+    {
+      "type": "shimmer",
+      "time": 11.50,
+      "gain": 0.48,
+      "pan": -0.05,
+      "description": "Puffy white wig and quill detach and float upward"
+    },
+    {
+      "type": "whoosh",
+      "time": 13.20,
+      "gain": 0.46,
+      "pan": 0.0,
+      "description": "Whip transition into zero-G modern chaos montage"
+    },
+    {
+      "type": "shimmer",
+      "time": 13.55,
+      "gain": 0.42,
+      "pan": 0.05,
+      "description": "Floating textbook, coffee mug/blobs, and pizza appear"
+    },
+    {
+      "type": "vine_boom",
+      "time": 19.25,
+      "gain": 0.56,
+      "pan": 0.0,
+      "description": "NO physics homework realization impact"
+    },
+    {
+      "type": "bling",
+      "time": 19.85,
+      "gain": 0.58,
+      "pan": -0.05,
+      "description": "Dramatic spotlight and cool 3D sunglasses snap onto Chewton"
+    },
+    {
+      "type": "whoosh",
+      "time": 25.60,
+      "gain": 0.45,
+      "pan": 0.0,
+      "description": "Apple dives straight down toward Chewton's head"
+    },
+    {
+      "type": "bonk",
+      "time": 25.86,
+      "gain": 0.85,
+      "pan": -0.05,
+      "description": "Apple SLAMS onto Chewton's head with giant shockwave"
+    },
+    {
+      "type": "daze_chime",
+      "time": 28.00,
+      "gain": 0.46,
+      "pan": -0.08,
+      "description": "Spinning cartoon stars chime around dazed Chewton"
+    }
+  ]
+}

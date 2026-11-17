@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chewton Theory — 3D YouTube Short</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0d1117;
+      color: #f0f6fc;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 16px;
+    }
+    video {
+      max-height: 78vh;
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.65);
+      background: #000;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    a.btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #ffd93d;
+      color: #0d1117;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    a.btn.secondary {
+      background: #21262d;
+      color: #f0f6fc;
+      border: 1px solid #30363d;
+    }
+  </style>
+</head>
+<body>
+  <video controls playsinline preload="metadata" src="/output/chewton_theory_short.mp4"></video>
+  <div class="actions">
+    <a class="btn" href="/output/chewton_theory_short.mp4" download="chewton_theory_short.mp4">Download MP4 (37.86 MB)</a>
+    <a class="btn secondary" href="/output/subtitles.srt" download="subtitles.srt">Download Subtitles (.srt)</a>
+  </div>
+</body>
+</html>
